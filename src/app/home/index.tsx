@@ -1,17 +1,23 @@
+import Menu from "../../layouts/Menu";
+import Description from "./components/Description";
 import ImgHome from "./components/ImgHome";
 
 const Home = () => {
   return (
-    <div className="w-full h-screen flex justify-center items-center">
-      <div className="">
-        <h1
-          className=" text-3xl cursor-default 
-        text-slate-200 font-mono p-5 rounded-lg"
-        >
-          <ImgHome />
-        </h1>
-      </div>
-    </div>
+    <>
+      <section
+        id="section_home"
+        className="w-[80%] flex flex-col h-screen m-auto"
+      >
+        <Menu />
+        <div className="w-full h-full flex justify-center items-center">
+          <div className="flex gap-4 w-full">
+            <Description />
+            <ImgHome />
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 export default Home;
