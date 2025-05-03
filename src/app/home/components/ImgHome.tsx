@@ -15,60 +15,83 @@ const ImgHome = () => {
       loopDelay: 2000,
     });
   };
+  const efectLinearSVG = () => {
+    const lTailwind2 = document.querySelector(
+      "#l-tailwind-2 path"
+    ) as SVGPathElement;
+    const lReact2 = document.querySelector("#l-react-2 path") as SVGPathElement;
+    const lNodejs2 = document.querySelector(
+      "#l-nodejs-2 path"
+    ) as SVGPathElement;
+    const lMysql2 = document.querySelector("#l-mysql-2 path") as SVGPathElement;
+    const lApp2 = document.querySelector("#l-app-2 path") as SVGPathElement;
+    const circle = document.querySelector(
+      "#Ellipse_circle circle"
+    ) as SVGCircleElement;
+    if (circle) {
+      circle.animate([{ fill: "#BD34FE" }], {
+        duration: 3000,
+        iterations: Infinity,
+        easing: "linear",
+        direction: "alternate",
+        delay: 1000,
+      });
+    }
+    if (lTailwind2 && lReact2 && lNodejs2 && lMysql2) {
+      const lengthTailwind2 = lTailwind2.getTotalLength();
+      lTailwind2.setAttribute("stroke-dashoffset", `${lengthTailwind2}`);
+      lTailwind2.setAttribute("stroke-dasharray", `10 ${lengthTailwind2}`);
+
+      const lengthReact2 = lReact2.getTotalLength();
+      lReact2.setAttribute("stroke-dashoffset", `${lengthReact2}`);
+      lReact2.setAttribute("stroke-dasharray", `10 ${lengthReact2}`);
+
+      const lengthNodejs2 = lNodejs2.getTotalLength();
+      lNodejs2.setAttribute("stroke-dashoffset", `${lengthNodejs2}`);
+      lNodejs2.setAttribute("stroke-dasharray", `10 ${lengthNodejs2}`);
+
+      const lengthMysql2 = lMysql2.getTotalLength();
+      lMysql2.setAttribute("stroke-dashoffset", `${lengthMysql2}`);
+      lMysql2.setAttribute("stroke-dasharray", `10 ${lengthMysql2}`);
+
+      const lengthApp2 = lApp2.getTotalLength();
+      lApp2.setAttribute("stroke-dashoffset", `${lengthApp2}`);
+      lApp2.setAttribute("stroke-dasharray", `10 ${lengthApp2}`);
+
+      pathEfectSVG(lTailwind2, lengthTailwind2);
+      pathEfectSVG(lReact2, lengthReact2);
+      pathEfectSVG(lNodejs2, lengthNodejs2);
+      pathEfectSVG(lMysql2, lengthMysql2);
+      pathEfectSVG(lApp2, lengthApp2, true);
+    }
+  };
+
+  const efectHoverSVG = () => {
+    const colorDefault = "#63327A";
+    const hoverRect = (rect: SVGRectElement) => {
+      rect.onmouseover = () => {
+        rect.setAttribute("fill", "#D6C5FF");
+      };
+      rect.onmouseout = () => {
+        rect.setAttribute("fill", colorDefault);
+      };
+    };
+    const getSelector = (id: string): SVGRectElement =>
+      document.querySelector(id) as SVGRectElement;
+    const rectangle_react = getSelector("#rectangle_react");
+    const rectangle_nodejs = getSelector("#rectangle_nodejs");
+    const rectangle_tailwind = getSelector("#rectangle_tailwind");
+    const rectangle_mysql = getSelector("#rectangle_mysql");
+    hoverRect(rectangle_react);
+    hoverRect(rectangle_nodejs);
+    hoverRect(rectangle_tailwind);
+    hoverRect(rectangle_mysql);
+  };
+
   useEffect(() => {
     if (document) {
-      const lTailwind2 = document.querySelector(
-        "#l-tailwind-2 path"
-      ) as SVGPathElement;
-      const lReact2 = document.querySelector(
-        "#l-react-2 path"
-      ) as SVGPathElement;
-      const lNodejs2 = document.querySelector(
-        "#l-nodejs-2 path"
-      ) as SVGPathElement;
-      const lMysql2 = document.querySelector(
-        "#l-mysql-2 path"
-      ) as SVGPathElement;
-      const lApp2 = document.querySelector("#l-app-2 path") as SVGPathElement;
-      const circle = document.querySelector(
-        "#Ellipse_circle circle"
-      ) as SVGCircleElement;
-      if (circle) {
-        circle.animate([{ fill: "#BD34FE" }], {
-          duration: 3000,
-          iterations: Infinity,
-          easing: "linear",
-          direction: "alternate",
-          delay: 1000,
-        });
-      }
-      if (lTailwind2 && lReact2 && lNodejs2 && lMysql2) {
-        const lengthTailwind2 = lTailwind2.getTotalLength();
-        lTailwind2.setAttribute("stroke-dashoffset", `${lengthTailwind2}`);
-        lTailwind2.setAttribute("stroke-dasharray", `10 ${lengthTailwind2}`);
-
-        const lengthReact2 = lReact2.getTotalLength();
-        lReact2.setAttribute("stroke-dashoffset", `${lengthReact2}`);
-        lReact2.setAttribute("stroke-dasharray", `10 ${lengthReact2}`);
-
-        const lengthNodejs2 = lNodejs2.getTotalLength();
-        lNodejs2.setAttribute("stroke-dashoffset", `${lengthNodejs2}`);
-        lNodejs2.setAttribute("stroke-dasharray", `10 ${lengthNodejs2}`);
-
-        const lengthMysql2 = lMysql2.getTotalLength();
-        lMysql2.setAttribute("stroke-dashoffset", `${lengthMysql2}`);
-        lMysql2.setAttribute("stroke-dasharray", `10 ${lengthMysql2}`);
-
-        const lengthApp2 = lApp2.getTotalLength();
-        lApp2.setAttribute("stroke-dashoffset", `${lengthApp2}`);
-        lApp2.setAttribute("stroke-dasharray", `10 ${lengthApp2}`);
-
-        pathEfectSVG(lTailwind2, lengthTailwind2);
-        pathEfectSVG(lReact2, lengthReact2);
-        pathEfectSVG(lNodejs2, lengthNodejs2);
-        pathEfectSVG(lMysql2, lengthMysql2);
-        pathEfectSVG(lApp2, lengthApp2, true);
-      }
+      efectLinearSVG();
+      efectHoverSVG();
     }
   });
   return (
@@ -246,6 +269,7 @@ const ImgHome = () => {
                   height="63"
                   rx="9"
                   fill="#67A1FE"
+                  id="rectangle_react"
                   fillOpacity="0.08"
                 />
                 <rect
@@ -305,6 +329,7 @@ const ImgHome = () => {
                   height="63"
                   rx="9"
                   fill="#67A1FE"
+                  id="rectangle_nodejs"
                   fillOpacity="0.08"
                 />
                 <rect
@@ -360,6 +385,7 @@ const ImgHome = () => {
                   height="63"
                   rx="9"
                   fill="#67A1FE"
+                  id="rectangle_tailwind"
                   fillOpacity="0.08"
                 />
                 <rect
@@ -494,6 +520,7 @@ const ImgHome = () => {
                 height="63"
                 rx="9"
                 fill="#67A1FE"
+                id="rectangle_mysql"
                 fillOpacity="0.08"
               />
               <rect
