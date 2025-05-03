@@ -17,7 +17,7 @@ const Home = () => {
             <ImgHome />
           </div>
         </div>
-        <div className="w-full h-full mt-6 flex justify-center">
+        <div className="w-full h-full mt-7 flex justify-center">
           <img
             src={ImgCode}
             className="shadow-[0_0_80px_1px_var(--bg-2-opacity)] rounded-3xl mb-3"
