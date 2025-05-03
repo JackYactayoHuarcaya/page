@@ -1,4 +1,9 @@
 @import "tailwindcss";
+:root {
+  --bg-1: #67a1fe;
+  --bg-2: #bd34fe;
+  --bg-2-opacity: #be34fe2d;
+}
 body {
   background-color: #110822;
 }
