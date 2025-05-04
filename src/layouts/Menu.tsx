@@ -1,6 +1,5 @@
 import { MENU } from "../constants/menu";
 import imgLogo from "/logo.svg";
-import { Link } from "react-router-dom";
 const Menu = () => {
   return (
     <section className="pt-16">
@@ -12,9 +11,9 @@ const Menu = () => {
           {MENU.map((item, index) => {
             return (
               <li key={index} className="list-none text-slate-50">
-                <Link to={`${item.name}`}>
+                <a href={`#${item.name}`}>
                   <p className="text-md hover:opacity-80">{item.title}</p>
-                </Link>
+                </a>
               </li>
             );
           })}

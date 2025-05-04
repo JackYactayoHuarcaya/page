@@ -4,6 +4,9 @@
   --bg-2: #bd34fe;
   --bg-2-opacity: #be34fe2d;
 }
+* {
+  scroll-behavior: smooth;
+}
 body {
   background-color: #110822;
 }

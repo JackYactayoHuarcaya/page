@@ -4,7 +4,7 @@ export const MENU = [
     title: "Inicio",
   },
   {
-    name: "/proyects",
+    name: "proyectos",
     title: "Proyectos",
   },
 ];

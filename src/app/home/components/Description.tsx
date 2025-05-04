@@ -8,7 +8,7 @@ const Description = () => {
         </h1>
         <h2
           className="bg-clip-text  bg-gradient-to-r from-[#67A1FE] to-[#BD34FE]
-        text-4xl lg:text-5xl text-transparent pb-2 font-bold"
+        text-4xl lg:text-5xl text-transparent pb-2 font-bold inline"
         >
           {HOME.subtitle}
         </h2>
